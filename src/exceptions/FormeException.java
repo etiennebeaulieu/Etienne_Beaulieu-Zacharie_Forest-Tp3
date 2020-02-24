@@ -21,8 +21,8 @@ public class FormeException extends Exception
 	 * 
 	 * @param message Explique l'erreur
 	 */
-	public FormeException(String message)
-	{
-		super(message);
-	}
+//	public FormeException(String message)
+//	{
+//		super(message);
+//	}
 }
