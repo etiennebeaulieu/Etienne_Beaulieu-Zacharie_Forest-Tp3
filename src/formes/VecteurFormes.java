@@ -59,7 +59,7 @@ public class VecteurFormes implements ManipulerVecteur
 		String string = null;
 		for(int i = 0; i < vecteur.size(); i++)
 		{
-			string += vecteur.get(i).getNom() + " " + vecteur.get(i).getCouleur();
+			string += "\n" + vecteur.get(i).getNom() + " " + vecteur.get(i).getCouleur();
 		}
 		return string;
 	}
