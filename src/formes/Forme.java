@@ -95,12 +95,22 @@ public abstract class Forme implements Comparable<Forme>
 	public abstract int calculerPerimetre();
 
 	/**
-	 * Retourne une String des infos de la forme sous la forme Rectangle rouge.
+	 * Retourne une String des infos de la forme sous la forme Forme rouge.
 	 * 
-	 * @return Les infos de la forme sous la forme Rectangle rouge.
+	 * @return Les infos de la forme sous la forme Forme rouge.
 	 */
 	@Override
 	public String toString()
+	{
+		return this.getNom() + " " + this.getCouleur().toString();
+	}
+	
+	/**
+	 * Retourne une String des infos de la forme sous la forme Forme rouge.
+	 * 
+	 * @return Les infos de la forme sous la forme Forme rouge.
+	 */
+	public String toStringCourt()
 	{
 		return this.getNom() + " " + this.getCouleur().toString();
 	}

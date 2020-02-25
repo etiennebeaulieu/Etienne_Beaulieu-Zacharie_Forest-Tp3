@@ -3,6 +3,7 @@ package formes;
 import java.util.ArrayList;
 
 import exceptions.FormeException;
+import jeu.*;
 
 public class VecteurFormes implements ManipulerVecteur
 {
@@ -11,12 +12,12 @@ public class VecteurFormes implements ManipulerVecteur
 
 	public VecteurFormes()
 	{
-
+		vecteur = new ArrayList<Forme>();
 	}
 
 	private static boolean validerNbrFormes(int pNbrFormes)
 	{
-		return pNbrFormes = JeuMemoire.NBR_ELEMENTS_GRILLE;
+		return pNbrFormes == JeuMemoire.NBR_ELEMENTS_GRILLE;
 	}
 
 	public void remplir(int pNbrFormes) throws FormeException
@@ -65,19 +66,24 @@ public class VecteurFormes implements ManipulerVecteur
 
 	public void trier()
 	{
-
+		
 	}
 
 	public void melanger()
 	{
+		int ind1;
+		int ind2;
 		for(int i = 0; i < 1000000; i++)
 		{
-			int x = Math.random()*
+			ind1 = (int) (Math.random() * vecteur.size());
+			ind2 = (int) (Math.random() * vecteur.size());
+			permuter(ind1, ind2);
 		}
 	}
 
 	private void permuter(int pInd1, int pInd2)
 	{
-
+		Forme temp = vecteur.set(pInd1, vecteur.get(pInd2));
+		vecteur.set(pInd2, temp);
 	}
 }
