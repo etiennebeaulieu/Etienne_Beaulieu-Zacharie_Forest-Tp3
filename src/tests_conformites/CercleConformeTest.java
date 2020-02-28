@@ -29,6 +29,8 @@ public class CercleConformeTest
 
 		// Attributs
 		assertTrue(c.getDeclaredField("rayon").getType() == int.class);
+		assertTrue((c.getDeclaredField("rayon").getModifiers()
+				& Modifier.PRIVATE) == Modifier.PRIVATE);
 
 		// Méthodes
 		assertTrue(c.getMethod("calculerPerimetre", new Class[]

@@ -27,7 +27,11 @@ public class RectangleConformeTest
 
 		// Attributs publics
 		assertTrue(c.getDeclaredField("hauteur").getType() == int.class);
+		assertTrue((c.getDeclaredField("hauteur").getModifiers()
+				& Modifier.PRIVATE) == Modifier.PRIVATE);
 		assertTrue(c.getDeclaredField("largeur").getType() == int.class);
+		assertTrue((c.getDeclaredField("largeur").getModifiers()
+				& Modifier.PRIVATE) == Modifier.PRIVATE);
 
 		// Méthodes publiques
 		assertTrue(c.getMethod("calculerPerimetre", new Class[]

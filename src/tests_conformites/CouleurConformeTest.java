@@ -19,25 +19,9 @@ import exceptions.FormeException;
 public class CouleurConformeTest
 {
 
-	private static UtilTest ut = new UtilTest("CouleurConformeTest");
-
-	@Before
-	public void testCercle() throws FormeException
-	{
-		ut.addCas();
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass()
-	{
-		ut.affStat();
-	}
-
 	@Test
 	public void testCouleurConforme() throws ClassNotFoundException, Exception
 	{
-		ut.affDebut();
-		ut.addTotal(1);
 
 		// Package et nom de la classe
 		Class c = Class.forName("formes.Couleur");
@@ -58,8 +42,5 @@ public class CouleurConformeTest
 		{ String.class }).getReturnType() == void.class);
 		assertTrue(c.getMethod("toString", new Class[]
 		{}).getReturnType() == String.class);
-		ut.addCumul(1);
-
-		ut.affFin();
 	}
 }

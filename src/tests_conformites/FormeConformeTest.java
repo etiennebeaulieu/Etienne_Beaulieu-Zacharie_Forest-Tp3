@@ -46,7 +46,11 @@ public class FormeConformeTest
 		assertTrue((c.getField("COULEUR_DEFAUT").getType() == Couleur.class)
 				&& (Forme.COULEUR_DEFAUT.equals(Couleur.ROUGE)));
 		assertTrue(c.getDeclaredField("nom").getType() == String.class);
+		assertTrue((c.getDeclaredField("nom").getModifiers()
+				& Modifier.PRIVATE) == Modifier.PRIVATE);
 		assertTrue(c.getDeclaredField("couleur").getType() == Couleur.class);
+		assertTrue((c.getDeclaredField("couleur").getModifiers()
+				& Modifier.PRIVATE) == Modifier.PRIVATE);
 
 		// Méthodes
 		assertTrue((c.getMethod("calculerPerimetre", new Class[]
@@ -61,6 +65,8 @@ public class FormeConformeTest
 						+ Modifier.PUBLIC);
 		assertTrue(c.getMethod("calculerSurface", new Class[]
 		{}).getReturnType() == int.class);
+		assertTrue(c.getMethod("toStringCourt", new Class[]
+		{}).getReturnType() == String.class);
 		assertTrue(c.getMethod("toString", new Class[]
 		{}).getReturnType() == String.class);
 		assertTrue(c.getMethod("getCouleur", new Class[]

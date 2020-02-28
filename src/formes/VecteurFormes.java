@@ -22,30 +22,33 @@ public class VecteurFormes implements ManipulerVecteur
 
 	public void remplir(int pNbrFormes) throws FormeException
 	{
-		int i = 0;
-		int couleur = 0;
-		while (i <= pNbrFormes)
+		if (validerNbrFormes(pNbrFormes))
 		{
-			vecteur.add(i, new Cercle(10));
-			vecteur.get(i).setCouleur(Couleur.values()[couleur]);
-			i++;
-
-			if (i <= pNbrFormes)
+			int i = 0;
+			int couleur = 0;
+			while (i <= pNbrFormes)
 			{
-				vecteur.add(i, new Rectangle(10, 10));
+				vecteur.set(i, new Cercle(10));
 				vecteur.get(i).setCouleur(Couleur.values()[couleur]);
 				i++;
-			}
-			if (i <= pNbrFormes)
-			{
-				vecteur.add(i, new Triangle(10, 10, 10));
-				vecteur.get(i).setCouleur(Couleur.values()[couleur]);
-				i++;
-			}
 
-			couleur++;
-			if (couleur > Couleur.values().length)
-				couleur = 0;
+				if (i <= pNbrFormes)
+				{
+					vecteur.set(i, new Rectangle(10, 10));
+					vecteur.get(i).setCouleur(Couleur.values()[couleur]);
+					i++;
+				}
+				if (i <= pNbrFormes)
+				{
+					vecteur.set(i, new Triangle(10, 10, 10));
+					vecteur.get(i).setCouleur(Couleur.values()[couleur]);
+					i++;
+				}
+
+				couleur++;
+				if (couleur > Couleur.values().length)
+					couleur = 0;
+			}
 		}
 	}
 
@@ -57,23 +60,40 @@ public class VecteurFormes implements ManipulerVecteur
 	public String toString()
 	{
 		String string = null;
-		for(int i = 0; i < vecteur.size(); i++)
+		for (int i = 0; i < vecteur.size(); i++)
 		{
-			string += "\n" + vecteur.get(i).getNom() + " " + vecteur.get(i).getCouleur();
+			string += "\n" + vecteur.get(i).getNom() + " "
+					+ vecteur.get(i).getCouleur();
 		}
 		return string;
 	}
 
 	public void trier()
 	{
-		
+		boolean flag = false;
+		int courant = vecteur.size() - 2;
+		do
+		{
+			for (int position = 0; position <= courant; position++)
+			{
+				if (vecteur.get(position)
+						.compareTo(vecteur.get(position + 1)) > 0)
+				{
+
+					permuter(position, position + 1);
+					flag = true;
+				}
+			}
+			courant--;
+		}
+		while (flag);
 	}
 
 	public void melanger()
 	{
 		int ind1;
 		int ind2;
-		for(int i = 0; i < 1000000; i++)
+		for (int i = 0; i < 1000000; i++)
 		{
 			ind1 = (int) (Math.random() * vecteur.size());
 			ind2 = (int) (Math.random() * vecteur.size());

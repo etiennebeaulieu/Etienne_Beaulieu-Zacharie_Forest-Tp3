@@ -18,7 +18,7 @@ public class TriangleConformeTest
 {
 
 	@Test
-	public void testRectangleConforme() throws ClassNotFoundException, Exception
+	public void testTriangleConforme() throws ClassNotFoundException, Exception
 	{
 		// Package et nom de la classe
 		Class c = Class.forName("formes.Triangle");
@@ -27,7 +27,16 @@ public class TriangleConformeTest
 		assertTrue(c.getConstructor(new Class[]
 		{ int.class, int.class, int.class }).getName() == "formes.Triangle");
 
-		// Attributs publics
+		// Attributs
+		assertTrue(c.getDeclaredField("coteA").getType() == int.class);
+		assertTrue((c.getDeclaredField("coteA").getModifiers()
+				& Modifier.PRIVATE) == Modifier.PRIVATE);
+		assertTrue(c.getDeclaredField("coteB").getType() == int.class);
+		assertTrue((c.getDeclaredField("coteB").getModifiers()
+				& Modifier.PRIVATE) == Modifier.PRIVATE);
+		assertTrue(c.getDeclaredField("coteC").getType() == int.class);
+		assertTrue((c.getDeclaredField("coteC").getModifiers()
+				& Modifier.PRIVATE) == Modifier.PRIVATE);
 
 		// Méthodes publiques
 		assertTrue(c.getMethod("calculerPerimetre", new Class[]
