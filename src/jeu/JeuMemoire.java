@@ -3,6 +3,7 @@ package jeu;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import exceptions.FormeException;
 import formes.*;
 
 public class JeuMemoire implements Memorisable
@@ -17,19 +18,28 @@ public class JeuMemoire implements Memorisable
 	private Forme[][] grilleDeJeu = null;
 	
 	
-	public JeuMemoire()
+	public JeuMemoire() throws FormeException
 	{
-		// TODO
+		preparerVecteurFormes();
+		preparerGrilleDeJeu();
 	}
 	
-	private void preparerVecteurFormes()
+	private void preparerVecteurFormes() throws FormeException
 	{
-		// TODO
+		vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
+		vecteurFormes.melanger();
 	}
 	
-	private void preparerGrilleDeJeu()
+	private void preparerGrilleDeJeu() throws FormeException
 	{
-		// TODO
+		for(int i = 0; i < LIGNE; i++)
+		{
+			for(int j = 0; i < COLONNE; j++) 
+			{
+				for(Forme f: vecteurFormes.getVecteur())
+					grilleDeJeu[i][j] = f;
+			}
+		}
 	}
 	
 	@Override
