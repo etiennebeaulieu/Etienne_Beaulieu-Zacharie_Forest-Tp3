@@ -17,7 +17,7 @@ public class VecteurFormes implements ManipulerVecteur
 
 	private static boolean validerNbrFormes(int pNbrFormes)
 	{
-		return pNbrFormes == JeuMemoire.NBR_ELEMENTS_GRILLE;
+		return pNbrFormes >= 0;
 	}
 
 	public void remplir(int pNbrFormes) throws FormeException
