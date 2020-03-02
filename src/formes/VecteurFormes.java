@@ -12,7 +12,7 @@ public class VecteurFormes implements ManipulerVecteur
 
 	public VecteurFormes()
 	{
-		vecteur = new ArrayList<Forme>();
+		vecteur = new ArrayList<Forme>(36);
 	}
 
 	private static boolean validerNbrFormes(int pNbrFormes)
@@ -20,38 +20,40 @@ public class VecteurFormes implements ManipulerVecteur
 		return pNbrFormes >= 0;
 	}
 
+	@Override
 	public void remplir(int pNbrFormes) throws FormeException
 	{
 		if (validerNbrFormes(pNbrFormes))
 		{
 			int i = 0;
 			int couleur = 0;
-			while (i <= pNbrFormes)
+			while (i < pNbrFormes)
 			{
-				vecteur.set(i, new Cercle(10));
+				vecteur.add(i, new Cercle(10));
 				vecteur.get(i).setCouleur(Couleur.values()[couleur]);
 				i++;
 
-				if (i <= pNbrFormes)
+				if (i < pNbrFormes)
 				{
-					vecteur.set(i, new Rectangle(10, 10));
+					vecteur.add(i, new Rectangle(10, 10));
 					vecteur.get(i).setCouleur(Couleur.values()[couleur]);
 					i++;
 				}
-				if (i <= pNbrFormes)
+				if (i < pNbrFormes)
 				{
-					vecteur.set(i, new Triangle(10, 10, 10));
+					vecteur.add(i, new Triangle(10, 10, 10));
 					vecteur.get(i).setCouleur(Couleur.values()[couleur]);
 					i++;
 				}
 
 				couleur++;
-				if (couleur > Couleur.values().length)
+				if (couleur >= Couleur.values().length)
 					couleur = 0;
 			}
 		}
 	}
 
+	@Override
 	public ArrayList<Forme> getVecteur()
 	{
 		return vecteur;
@@ -68,12 +70,14 @@ public class VecteurFormes implements ManipulerVecteur
 		return string;
 	}
 
+	@Override
 	public void trier()
 	{
 		boolean flag = false;
-		int courant = vecteur.size() - 2;
+		int courant = (vecteur.size() - 2);
 		do
 		{
+			flag = false;
 			for (int position = 0; position <= courant; position++)
 			{
 				if (vecteur.get(position)
@@ -89,6 +93,7 @@ public class VecteurFormes implements ManipulerVecteur
 		while (flag);
 	}
 
+	@Override
 	public void melanger()
 	{
 		int ind1;
