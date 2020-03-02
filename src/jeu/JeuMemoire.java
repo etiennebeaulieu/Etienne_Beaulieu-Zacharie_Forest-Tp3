@@ -12,8 +12,10 @@ public class JeuMemoire implements Memorisable
 	public static final int COLONNE = 6;
 	public static final int NBR_ELEMENTS_GRILLE = LIGNE * COLONNE;
 	public static final int LONGUEUR_CHAINE = 17;
+	
+	
 	private ArrayList<Point> vecteurPoints = null;
-	private int niveau = 0;
+	private int niveau = 1;
 	private VecteurFormes vecteurFormes = null;
 	private Forme[][] grilleDeJeu = null;
 
@@ -50,12 +52,13 @@ public class JeuMemoire implements Memorisable
 	private void preparerGrilleDeJeu() throws FormeException
 	{
 		grilleDeJeu = new Forme[LIGNE][COLONNE];
+		int position = 0;
 		for (int i = 0; i < LIGNE; i++)
 		{
 			for (int j = 0; j < COLONNE; j++)
 			{
-				for (Forme f : vecteurFormes.getVecteur())
-					grilleDeJeu[i][j] = f;
+					grilleDeJeu[i][j] = vecteurFormes.getVecteur().get(position);
+					position++;
 			}
 		}
 	}
@@ -69,7 +72,7 @@ public class JeuMemoire implements Memorisable
 			for (int j = 0; j < COLONNE; j++)
 			{
 				s += ajouterEspaces(grilleDeJeu[i][j].toStringCourt().length(),
-						grilleDeJeu[i][j].toStringCourt());
+						grilleDeJeu[i][j].toStringCourt()) + "| ";
 			}
 			s += "\n";
 		}
@@ -106,26 +109,32 @@ public class JeuMemoire implements Memorisable
 	@Override
 	public ArrayList<Point> jouerOrdi()
 	{
-		ArrayList<Point> liste = new ArrayList<Point>();
+		vecteurPoints = new ArrayList<Point>();
 		int i = 0;
 		do
 		{
 			Point temp = choisirForme();
-			if (!liste.contains(temp))
+			if (!vecteurPoints.contains(temp))
 			{
-				liste.add(temp);
+				vecteurPoints.add(temp);
 				i++;
 			}
 		}
 		while (i < niveau + 2);
-		return liste;
+		return vecteurPoints;
 	}
 
 	@Override
 	public boolean jouerHumain(int x, int y)
 	{
-		// TODO Auto-generated method stub
-		return false;
+		boolean estBon = false;
+		Point point = new Point(x,y);
+		if(this.vecteurPoints.size() != 0)
+		{
+			if(point.equals(this.vecteurPoints.remove(0)))
+				estBon=true;
+		}
+		return estBon;
 	}
 
 	@Override
@@ -143,5 +152,12 @@ public class JeuMemoire implements Memorisable
 	public Forme[][] getGrille()
 	{
 		return grilleDeJeu;
+	}
+	
+	public static void main(String[] args)
+	{
+//		JeuMemoire jeu = new JeuMemoire();
+//		System.out.println(jeu.toString());
+
 	}
 }
