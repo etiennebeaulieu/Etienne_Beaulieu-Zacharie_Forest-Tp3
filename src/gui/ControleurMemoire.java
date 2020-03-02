@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import exceptions.FormeException;
 import jeu.JeuMemoire;
 
 /**

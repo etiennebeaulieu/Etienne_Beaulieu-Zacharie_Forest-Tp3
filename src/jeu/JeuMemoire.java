@@ -10,58 +10,82 @@ public class JeuMemoire implements Memorisable
 {
 	public static final int LIGNE = 6;
 	public static final int COLONNE = 6;
-	public static final int NBR_ELEMENTS_GRILLE = LIGNE*COLONNE;
+	public static final int NBR_ELEMENTS_GRILLE = LIGNE * COLONNE;
 	public static final int LONGUEUR_CHAINE = 17;
 	private ArrayList<Point> vecteurPoints = null;
 	private int niveau = 0;
 	private VecteurFormes vecteurFormes = null;
 	private Forme[][] grilleDeJeu = null;
-	
-	
-	public JeuMemoire() throws FormeException
+
+	public JeuMemoire()
 	{
-		preparerVecteurFormes();
-		preparerGrilleDeJeu();
+		try 
+		{
+			preparerVecteurFormes();
+			preparerGrilleDeJeu();
+		}
+		catch(FormeException e)
+		{
+			new FormeException("");
+		}
+		
+		
+
 	}
-	
+
 	private void preparerVecteurFormes() throws FormeException
 	{
-		vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
+		try
+		{
+			vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
+		}
+		catch(FormeException e)
+		{
+			new FormeException("Nbr d'élément");
+		}
 		vecteurFormes.melanger();
 	}
-	
+
 	private void preparerGrilleDeJeu() throws FormeException
 	{
-		for(int i = 0; i < LIGNE; i++)
+		for (int i = 0; i < LIGNE; i++)
 		{
-			for(int j = 0; i < COLONNE; j++) 
+			for (int j = 0; j < COLONNE; j++)
 			{
-				for(Forme f: vecteurFormes.getVecteur())
+				for (Forme f : vecteurFormes.getVecteur())
 					grilleDeJeu[i][j] = f;
 			}
 		}
 	}
-	
+
 	@Override
 	public String toString()
 	{
-		// TODO
-		return null;
+		String s = "";
+		for (int i = 0; i < LIGNE; i++)
+		{
+			for (int j = 0; j < COLONNE; j++)
+			{
+				s += ajouterEspaces(grilleDeJeu[i][j].toStringCourt().length(),
+						grilleDeJeu[i][j].toStringCourt());
+			}
+			s += "\n";
+		}
+		return s;
 	}
-	
-	private String ajouterEspaces(int LONGUEUR_CHAINE, String pChaine)
+
+	private String ajouterEspaces(int longueurChaine, String pChaine)
 	{
-		// TODO
-		return null;
+		for (int i = longueurChaine; i <= LONGUEUR_CHAINE; i++)
+			pChaine += " ";
+		return pChaine;
 	}
-	
-	
+
 	private Point choisirForme()
 	{
-		// TODO
-		return null;
+		return new Point((int) (Math.random() * LIGNE),
+				(int) (Math.random() * COLONNE));
 	}
-	
 
 	@Override
 	public int getNiveau()
@@ -72,15 +96,27 @@ public class JeuMemoire implements Memorisable
 	@Override
 	public void setNiveauPlusUn()
 	{
-		// TODO Auto-generated method stub
-		
+		if (niveau < NIVEAU_MAX)
+			niveau++;
+
 	}
 
 	@Override
 	public ArrayList<Point> jouerOrdi()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Point> liste = new ArrayList<Point>();
+		int i = 0;
+		do
+		{
+			Point temp = choisirForme();
+			if (!liste.contains(temp))
+			{
+				liste.add(temp);
+				i++;
+			}
+		}
+		while (i < niveau + 2);
+		return liste;
 	}
 
 	@Override
@@ -93,22 +129,17 @@ public class JeuMemoire implements Memorisable
 	@Override
 	public String getNomForme(int x, int y)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return (grilleDeJeu[x][y].getNom()
+				+ grilleDeJeu[x][y].getCouleur().getNom());
 	}
-	
+
 	public VecteurFormes getVecteur()
 	{
 		return vecteurFormes;
 	}
-	
+
 	public Forme[][] getGrille()
 	{
 		return grilleDeJeu;
-	}
-	
-	public static void main(String[] args)
-	{
-		//TODO
 	}
 }
