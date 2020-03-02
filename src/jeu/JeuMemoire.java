@@ -37,6 +37,7 @@ public class JeuMemoire implements Memorisable
 	{
 		try
 		{
+			vecteurFormes = new VecteurFormes();
 			vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
 		}
 		catch(FormeException e)
@@ -48,6 +49,7 @@ public class JeuMemoire implements Memorisable
 
 	private void preparerGrilleDeJeu() throws FormeException
 	{
+		grilleDeJeu = new Forme[LIGNE][COLONNE];
 		for (int i = 0; i < LIGNE; i++)
 		{
 			for (int j = 0; j < COLONNE; j++)
