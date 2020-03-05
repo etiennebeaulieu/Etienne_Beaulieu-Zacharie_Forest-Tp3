@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import exceptions.FormeException;
 
+//Étienne Beaulieu et Zacharie Forest
 public interface ManipulerVecteur
 {
 	public ArrayList<Forme> getVecteur();

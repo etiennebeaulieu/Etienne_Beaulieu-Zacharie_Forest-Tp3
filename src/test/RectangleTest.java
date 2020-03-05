@@ -7,7 +7,7 @@ import org.junit.*;
 import exceptions.FormeException;
 import formes.*;
 
-//Étienne Beaulieu
+//Étienne Beaulieu et Zacharie Forest
 public class RectangleTest
 {
 	private Rectangle r1, r2, r3, r4, r5;

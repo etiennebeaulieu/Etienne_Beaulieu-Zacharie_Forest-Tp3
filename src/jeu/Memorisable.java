@@ -3,6 +3,7 @@ package jeu;
 import java.awt.Point;
 import java.util.ArrayList;
 
+//Étienne Beaulieu et Zacharie Forest
 public interface Memorisable
 {
 	public static final int NIVEAU_MAX = 6;

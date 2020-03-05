@@ -6,7 +6,7 @@ import org.junit.*;
 import formes.*;
 import exceptions.*;
 
-//Étienne Beaulieu
+//Étienne Beaulieu et Zacharie Forest
 public class FormeTest
 {
 	private Forme t1, t2, t5, r1, r2, r5, c1, c2;

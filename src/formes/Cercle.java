@@ -8,6 +8,7 @@ import exceptions.FormeException;
  * 
  * @see java.lang.Object
  * @author Étienne
+ * @author Zacharie Forest
  * @version 2
  *
  */

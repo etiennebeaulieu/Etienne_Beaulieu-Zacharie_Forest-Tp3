@@ -6,7 +6,7 @@ import org.junit.*;
 import exceptions.*;
 import formes.*;
 
-//Étienne Beaulieu
+//Étienne Beaulieu et Zacharie Forest
 public class CercleTest
 {
 	private static final int MIN_VAL = 1;

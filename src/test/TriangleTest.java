@@ -6,7 +6,7 @@ import org.junit.*;
 import exceptions.FormeException;
 import formes.*;
 
-//Étienne Beaulieu
+//Étienne Beaulieu et Zacharie Forest
 public class TriangleTest
 {
 	private Triangle t1, t2, t3, t4, t5, t6;
