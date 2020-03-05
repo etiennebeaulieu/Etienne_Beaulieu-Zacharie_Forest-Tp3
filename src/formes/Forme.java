@@ -6,7 +6,8 @@ package formes;
  * 
  * @see java.lang.Object
  * @author Étienne
- * @version 1
+ * @author Zacharie Forest
+ * @version 2
  *
  */
 public abstract class Forme implements Comparable<Forme>

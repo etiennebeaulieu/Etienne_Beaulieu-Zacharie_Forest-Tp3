@@ -9,6 +9,7 @@ import org.junit.*;
 import exceptions.FormeException;
 import formes.*;
 
+//Étienne Beaulieu et Zacharei Forest
 public class VecteurFormesTest
 {
 	VecteurFormes v1, v2;

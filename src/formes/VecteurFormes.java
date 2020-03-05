@@ -3,23 +3,50 @@ package formes;
 import java.util.ArrayList;
 
 import exceptions.FormeException;
-import jeu.*;
 
+/**
+ * Cette classe est un contenant pour manipuler des formes.
+ * Date de création : 29 février 2020
+ * 
+ * @see java.lang.Object
+ * @author Étienne Beaulieu
+ * @author Zacharie Forest
+ * @version 1
+ */
 public class VecteurFormes implements ManipulerVecteur
 {
 
+	/**
+	 * Vecteur dynamique de formes
+	 */
 	private ArrayList<Forme> vecteur = null;
 
+	/**
+	 * Construit un objet de type VecteurFormes et y instancie un vecteur
+	 * dynamique de formes.
+	 */
 	public VecteurFormes()
 	{
 		vecteur = new ArrayList<Forme>(36);
 	}
 
+	/**
+	 * Valide le nombre de formes.
+	 * 
+	 * @param pNbrFormes Le nombre de forme à vérifier.
+	 * @return Vrai si le nombre de forme est positif, faux sinon
+	 */
 	private static boolean validerNbrFormes(int pNbrFormes)
 	{
 		return pNbrFormes >= 0;
 	}
 
+	/**
+	 * Remplit le vecteur d'un nombre déterminé de formes.
+	 * 
+	 * @param pNbrFormes Le nombre de formes à mettre dans le vecteur.
+	 * @throws Lance une exception si un objet invalide tente d'être créé.
+	 */
 	@Override
 	public void remplir(int pNbrFormes) throws FormeException
 	{
@@ -53,12 +80,24 @@ public class VecteurFormes implements ManipulerVecteur
 		}
 	}
 
+	/**
+	 * Une méthode permettant d’obtenir une référence sur le vecteur de formes.
+	 * 
+	 * @return Le vecteur dynamique de formes.
+	 */
 	@Override
 	public ArrayList<Forme> getVecteur()
 	{
 		return vecteur;
 	}
 
+	/**
+	 * Permet de visualiser le contenu complet du vecteur de formes (une par
+	 * ligne, nom et couleur seulement).
+	 * 
+	 * @return Une string sous le format : Cercle bleu
+	 */
+	@Override
 	public String toString()
 	{
 		String string = null;
@@ -70,11 +109,15 @@ public class VecteurFormes implements ManipulerVecteur
 		return string;
 	}
 
+	/**
+	 * Tri les éléments du vecteur par forme et par couleur
+	 */
 	@Override
 	public void trier()
 	{
 		boolean flag = false;
 		int courant = (vecteur.size() - 2);
+		// Tri à bulle amélioré
 		do
 		{
 			flag = false;
@@ -93,6 +136,9 @@ public class VecteurFormes implements ManipulerVecteur
 		while (flag);
 	}
 
+	/**
+	 * Mélange aléatoirement le contenu du vecteur de formes.
+	 */
 	@Override
 	public void melanger()
 	{
@@ -106,6 +152,12 @@ public class VecteurFormes implements ManipulerVecteur
 		}
 	}
 
+	/**
+	 * Intervertit deux la position de deux formes dans le vecteur de formes.
+	 * 
+	 * @param pInd1 Indice de la première forme
+	 * @param pInd2 Indice de la deuxième forme
+	 */
 	private void permuter(int pInd1, int pInd2)
 	{
 		Forme temp = vecteur.set(pInd1, vecteur.get(pInd2));

@@ -6,49 +6,94 @@ import java.util.ArrayList;
 import exceptions.FormeException;
 import formes.*;
 
+/**
+ * Permet de définir tous les comportements nécessaires à la gestion du jeu de
+ * mémoire « Souviens-toi … » Date de création : 29 février 2020
+ * 
+ * @see java.lang.Object
+ * @author Étienne
+ * @author Zacharie Forest
+ * @version 1
+ */
 public class JeuMemoire implements Memorisable
 {
+	/**
+	 * Le nombre de ligne que comptera la grille de jeu
+	 */
 	public static final int LIGNE = 6;
+
+	/**
+	 * Le nombre de colonne que comptera la grille de jeu
+	 */
 	public static final int COLONNE = 6;
+
+	/**
+	 * Le nombre de forme total de la grille de jeu
+	 */
 	public static final int NBR_ELEMENTS_GRILLE = LIGNE * COLONNE;
+
+	/**
+	 * La longueur d'une chaine de caractère
+	 */
 	public static final int LONGUEUR_CHAINE = 17;
-	
-	
+
+	/**
+	 * Un tableau dynamique de points
+	 */
 	private ArrayList<Point> vecteurPoints = null;
-	private int niveau = 1;
+
+	/**
+	 * Le niveau courant du jeu
+	 */
+	private int niveau = 0;
+
+	/**
+	 * La liste des formes
+	 */
 	private VecteurFormes vecteurFormes = null;
+
+	/**
+	 * La matrice des formes constituant le jeu
+	 */
 	private Forme[][] grilleDeJeu = null;
 
+	/**
+	 * Permet de remplir la matrice à partir d’un objet VecteurFormes
+	 * préalablement rempli et mélangé.
+	 */
 	public JeuMemoire()
 	{
-		try 
+		try
 		{
 			preparerVecteurFormes();
 			preparerGrilleDeJeu();
 		}
-		catch(FormeException e)
+		catch (FormeException e)
 		{
-			new FormeException("");
+			new FormeException("Objet invalide");
 		}
-		
-		
+		niveau = 1;
 
 	}
 
+	/**
+	 * Crée un vecteur de formes, le remplit puis le mélange.
+	 * 
+	 * @throws FormeException Lance une exception si un objet invalide tente
+	 *             d'être créé.
+	 */
 	private void preparerVecteurFormes() throws FormeException
 	{
-		try
-		{
-			vecteurFormes = new VecteurFormes();
-			vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
-		}
-		catch(FormeException e)
-		{
-			new FormeException("Nbr d'élément");
-		}
+		vecteurFormes = new VecteurFormes();
+		vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
+
 		vecteurFormes.melanger();
 	}
 
+	/**
+	 * 
+	 * @throws FormeException
+	 */
 	private void preparerGrilleDeJeu() throws FormeException
 	{
 		grilleDeJeu = new Forme[LIGNE][COLONNE];
@@ -57,8 +102,8 @@ public class JeuMemoire implements Memorisable
 		{
 			for (int j = 0; j < COLONNE; j++)
 			{
-					grilleDeJeu[i][j] = vecteurFormes.getVecteur().get(position);
-					position++;
+				grilleDeJeu[i][j] = vecteurFormes.getVecteur().get(position);
+				position++;
 			}
 		}
 	}
@@ -128,11 +173,11 @@ public class JeuMemoire implements Memorisable
 	public boolean jouerHumain(int x, int y)
 	{
 		boolean estBon = false;
-		Point point = new Point(x,y);
-		if(this.vecteurPoints.size() != 0)
+		Point point = new Point(x, y);
+		if (this.vecteurPoints.size() != 0)
 		{
-			if(point.equals(this.vecteurPoints.remove(0)))
-				estBon=true;
+			if (point.equals(this.vecteurPoints.remove(0)))
+				estBon = true;
 		}
 		return estBon;
 	}
@@ -153,11 +198,11 @@ public class JeuMemoire implements Memorisable
 	{
 		return grilleDeJeu;
 	}
-	
+
 	public static void main(String[] args)
 	{
-//		JeuMemoire jeu = new JeuMemoire();
-//		System.out.println(jeu.toString());
+		// JeuMemoire jeu = new JeuMemoire();
+		// System.out.println(jeu.toString());
 
 	}
 }

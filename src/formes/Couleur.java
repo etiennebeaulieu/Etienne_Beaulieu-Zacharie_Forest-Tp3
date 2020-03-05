@@ -4,6 +4,7 @@ package formes;
  * Permet de gérer les couleurs possible d'une forme
  * 
  * @author Étienne Beaulieu
+ * @author Zacharie Forest
  * @version 1
  *
  */
