@@ -185,7 +185,8 @@ public class JeuMemoire implements Memorisable
 	@Override
 	public String getNomForme(int x, int y)
 	{
-		return (grilleDeJeu[x][y].toStringCourt());
+		return (grilleDeJeu[x][y].getNom()
+				+ grilleDeJeu[x][y].getCouleur().getNom());
 	}
 
 	public VecteurFormes getVecteur()
