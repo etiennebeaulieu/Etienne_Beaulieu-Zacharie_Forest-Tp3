@@ -67,7 +67,7 @@ public class VueMemoire extends JFrame
 		panel1.add(panel3, BorderLayout.CENTER);
 		getContentPane().add(panel1, BorderLayout.CENTER);
 
-		setPreferredSize(new Dimension(600, 600));
+		setPreferredSize(new Dimension(1000, 1000));
 		pack();
 		setLocation((screenSize.width - this.getWidth()) / 2,
 				(screenSize.height - this.getHeight()) / 2);
