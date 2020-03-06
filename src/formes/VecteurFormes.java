@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import exceptions.FormeException;
 
 /**
- * Cette classe est un contenant pour manipuler des formes.
- * Date de création : 29 février 2020
+ * Cette classe est un contenant pour manipuler des formes. Date de création :
+ * 29 février 2020
  * 
  * @see java.lang.Object
  * @author Étienne Beaulieu
@@ -45,7 +45,8 @@ public class VecteurFormes implements ManipulerVecteur
 	 * Remplit le vecteur d'un nombre déterminé de formes.
 	 * 
 	 * @param pNbrFormes Le nombre de formes à mettre dans le vecteur.
-	 * @throws Lance une exception si un objet invalide tente d'être créé.
+	 * @throws FormeException Lance une exception si on tente de créer quelque
+	 *             chose d'invalide
 	 */
 	@Override
 	public void remplir(int pNbrFormes) throws FormeException
