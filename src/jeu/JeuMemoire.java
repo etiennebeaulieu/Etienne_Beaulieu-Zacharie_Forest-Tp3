@@ -91,8 +91,11 @@ public class JeuMemoire implements Memorisable
 	}
 
 	/**
+	 * Crée une grille de formes sous forme de matrice et la remplie avec les
+	 * formes du vecteurFormes
 	 * 
-	 * @throws FormeException
+	 * @throws FormeException Lance une exception si un objet invalide tente
+	 *             d'être créé.
 	 */
 	private void preparerGrilleDeJeu() throws FormeException
 	{
@@ -108,6 +111,15 @@ public class JeuMemoire implements Memorisable
 		}
 	}
 
+	/**
+	 * Permet de visualiser le contenu complet de la grille sous une forme qui
+	 * s'apparente à une matrice. Seulement le nom et la couleur et les formes
+	 * sont séparées par un "|"
+	 * 
+	 * @return Une string comportant toutes les formes de la grille sous une
+	 *         forme qui s'apparente à une matrice. Seulement le nom et la
+	 *         couleur et les formes sont séparées par un "|"
+	 */
 	@Override
 	public String toString()
 	{
@@ -124,6 +136,15 @@ public class JeuMemoire implements Memorisable
 		return s;
 	}
 
+	/**
+	 * Retourne une nouvelle chaine contenant la chaine initiale plus des
+	 * espaces pour ajuster la longueur
+	 * 
+	 * @param longueurChaine Longueur de la chaine
+	 * @param pChaine Chaine à modifier
+	 * @return Une nouvelle chaine contenant la chaine initiale plus des espaces
+	 *         pour ajuster la longueur
+	 */
 	private String ajouterEspaces(int longueurChaine, String pChaine)
 	{
 		for (int i = longueurChaine; i <= LONGUEUR_CHAINE; i++)
@@ -131,18 +152,31 @@ public class JeuMemoire implements Memorisable
 		return pChaine;
 	}
 
+	/**
+	 * Crée et retourne un point aléatoire de la grille 
+	 * 
+	 * @return Un point aléatoire de la grille 
+	 */
 	private Point choisirForme()
 	{
 		return new Point((int) (Math.random() * LIGNE),
 				(int) (Math.random() * COLONNE));
 	}
 
+	/**
+	 * Retourne le niveau
+	 * 
+	 * @return Le niveau
+	 */
 	@Override
 	public int getNiveau()
 	{
 		return niveau;
 	}
 
+	/**
+	 * increme
+	 */
 	@Override
 	public void setNiveauPlusUn()
 	{
