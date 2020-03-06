@@ -42,11 +42,11 @@ public class VueMemoire extends JFrame
 		JPanel panel3 = new JPanel(gridLayout);
 
 		titre = new JLabel();
-		titre.setFont(new Font("Arial", Font.BOLD, 40));
+		titre.setFont(new Font("Arial", Font.BOLD, 48));
 		nbTrouve = new JLabel();
 		nbReste = new JLabel();
-		nbTrouve.setFont(new Font("Arial", Font.BOLD, 12));
-		nbReste.setFont(new Font("Arial", Font.BOLD, 12));
+		nbTrouve.setFont(new Font("Arial", Font.BOLD, 24));
+		nbReste.setFont(new Font("Arial", Font.BOLD, 24));
 
 		boutons = new JButton[JeuMemoire.LIGNE][JeuMemoire.COLONNE];
 		for (int i = 0; i < JeuMemoire.LIGNE; i++)
