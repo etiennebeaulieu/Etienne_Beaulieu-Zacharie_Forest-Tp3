@@ -42,7 +42,7 @@ public class VueMemoire extends JFrame
 		JPanel panel3 = new JPanel(gridLayout);
 
 		titre = new JLabel();
-		titre.setFont(new Font("Arial", Font.BOLD, 24));
+		titre.setFont(new Font("Arial", Font.BOLD, 40));
 		nbTrouve = new JLabel();
 		nbReste = new JLabel();
 		nbTrouve.setFont(new Font("Arial", Font.BOLD, 12));

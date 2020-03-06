@@ -13,19 +13,19 @@ import jeu.JeuMemoire;
 public class JeuMemoireTest
 {
 
-	JeuMemoire j1, j2, j3;
+	JeuMemoire j1;
 
 	@Before
 	public void testJeuMemoire()
 	{
 		j1 = new JeuMemoire();
-		j2 = new JeuMemoire();
 	}
 
 	@Test
 	public void testToString()
 	{
-		fail("Not yet implemented");
+		//Test visuel
+		System.out.println(j1.toString());
 	}
 
 	@Test
@@ -210,7 +210,7 @@ public class JeuMemoireTest
 			for (int j = 0; j < JeuMemoire.COLONNE; j++)
 			{
 				assertEquals(j1.getNomForme(i, j),
-						j1.getGrille()[i][j].toStringCourt());
+						j1.getGrille()[i][j].getNom() + j1.getGrille()[i][j].getCouleur());
 			}
 		}
 	}
