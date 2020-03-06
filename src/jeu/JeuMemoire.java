@@ -211,11 +211,11 @@ public class JeuMemoire implements Memorisable
 
 	
 	/**
+	 * Retourne vrai si le point sélectionné est valide
 	 * 
-	 * 
-	 * @param x
-	 * @param y
-	 * @return 
+	 * @param x Coordonnée en x du point sélectionné
+	 * @param y Coordonnée en y du point sélectionné
+	 * @return true si le point sélectionné est valide
 	 */
 	@Override
 	public boolean jouerHumain(int x, int y)
@@ -230,6 +230,14 @@ public class JeuMemoire implements Memorisable
 		return estBon;
 	}
 
+	/**
+	 * Retourne le nom de la forme  et la couleur sous la forme: Cerclebleu
+	 * 
+	 * @param x Coordonnée en x du point sélectionné
+	 * @param y Coordonnée en y du point sélectionné
+	 * @return Le nom de la forme  et la couleur sous la forme: Cerclebleu
+	 * 
+	 */
 	@Override
 	public String getNomForme(int x, int y)
 	{
@@ -237,20 +245,23 @@ public class JeuMemoire implements Memorisable
 				+ grilleDeJeu[x][y].getCouleur().getNom());
 	}
 
+	/**
+	 * Retourne le vecteur de formes
+	 * 
+	 * @return vecteurFormes
+	 */
 	public VecteurFormes getVecteur()
 	{
 		return vecteurFormes;
 	}
 
+	/**
+	 * Retourne la grille de jeu
+	 * 
+	 * @return grilleDeJeu
+	 */
 	public Forme[][] getGrille()
 	{
 		return grilleDeJeu;
-	}
-
-	public static void main(String[] args)
-	{
-		// JeuMemoire jeu = new JeuMemoire();
-		// System.out.println(jeu.toString());
-
 	}
 }
