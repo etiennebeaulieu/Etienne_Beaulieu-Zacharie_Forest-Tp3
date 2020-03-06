@@ -1,6 +1,8 @@
-/formes/
 /applications/
+/exceptions/
+/formes/
 /gui/
+/jeu/
 /test/
 /tests_conformites/
-/jeu/
+/utilitaires/
