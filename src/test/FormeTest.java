@@ -85,6 +85,7 @@ public class FormeTest
 		// Même nom, pas même couleur
 		assertTrue(t1.compareTo(t5) > 0);
 		assertTrue(t5.compareTo(t1) < 0);
+		
 
 		// Pas même nom, même couleur
 		assertTrue(t1.compareTo(new Rectangle(3, 4)) >= 0);

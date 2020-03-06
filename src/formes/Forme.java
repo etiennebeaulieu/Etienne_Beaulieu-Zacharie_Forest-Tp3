@@ -103,7 +103,7 @@ public abstract class Forme implements Comparable<Forme>
 	@Override
 	public String toString()
 	{
-		return this.getNom() + " " + this.getCouleur().toString();
+		return this.getNom() + " " + this.getCouleur();
 	}
 	
 	/**

@@ -146,7 +146,7 @@ public class Triangle extends Forme
 	 */
 	private int getNbrCoteEgaux()
 	{
-		int nbrCotesEgaux = 1;
+		int nbrCotesEgaux = 0;
 
 		if (coteA == coteB || coteA == coteC || coteB == coteC)
 			nbrCotesEgaux = 2;
@@ -179,8 +179,9 @@ public class Triangle extends Forme
 	 */
 	private boolean estRectangle()
 	{
-		return getCotesTries()[2] == Math.sqrt(Math.pow(getCotesTries()[0], 2)
-				+ Math.pow(getCotesTries()[1], 2));
+		int[] cotesTries = this.getCotesTries();
+		return (Math.pow(cotesTries[2], 2) == Math.pow(cotesTries[0], 2)
+				+ Math.pow(cotesTries[1], 2));
 	}
 
 	/**

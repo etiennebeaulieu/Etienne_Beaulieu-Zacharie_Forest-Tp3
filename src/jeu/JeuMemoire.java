@@ -153,9 +153,9 @@ public class JeuMemoire implements Memorisable
 	}
 
 	/**
-	 * Crée et retourne un point aléatoire de la grille 
+	 * Crée et retourne un point aléatoire de la grille
 	 * 
-	 * @return Un point aléatoire de la grille 
+	 * @return Un point aléatoire de la grille
 	 */
 	private Point choisirForme()
 	{
@@ -175,7 +175,7 @@ public class JeuMemoire implements Memorisable
 	}
 
 	/**
-	 * increme
+	 * Incrémente le niveau si il est plus petit que le niveau max
 	 */
 	@Override
 	public void setNiveauPlusUn()
@@ -185,6 +185,12 @@ public class JeuMemoire implements Memorisable
 
 	}
 
+	/**
+	 * Crée et retourne une Arraylist de points tous différents au nombre de
+	 * niveau plus deux
+	 * 
+	 * @return Une Arraylist de points tous différents
+	 */
 	@Override
 	public ArrayList<Point> jouerOrdi()
 	{
@@ -203,6 +209,14 @@ public class JeuMemoire implements Memorisable
 		return vecteurPoints;
 	}
 
+	
+	/**
+	 * 
+	 * 
+	 * @param x
+	 * @param y
+	 * @return 
+	 */
 	@Override
 	public boolean jouerHumain(int x, int y)
 	{
